@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <section id="header">
+    <a href="#">
+    <img src="logo.jpg" class="logo" alt="">
+    </a>
+    <div>
+      <ul id="navbar">
+        <li><a  href="index.html">Home</a></li>
+        <li><a  href="shop.html">Shop</a></li>
+        <li><a  href="blog.html">Blog</a></li>
+        <li><a  href="about.html">About</a></li>
+        <li><a  href="contact.html">Contact</a></li>
+        <li><a class="active" href="cart.html"><i class="far fa-shopping-bag"></i> </a>
+        </li>
+      </ul>
+
+    </div>
+  
+  
+  </section>
+
+  <section id="page-header" class="about-header">
+
+    <h2>#Let's Talk</h2>
+    
+    <p>LEAVE A MESSAGE, We love to hear from you!</p>
+    
+  </section>
+
+
+
+
+
+
+
+  
+<div class="container">
+    <div class="checkoutLayout">
+
+      <div class="right">
+        <h1>Checkout</h1>
+
+        <form name="submit-to-google-sheet">
+          <input type="text" name="name" placeholder="your name" required>
+        
+      
+        <div class="form">
+            <div class="group">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name">
+            </div>
+
+            <div class="group">
+                <label for="phone">Phone Number</label>
+                <input type="text" name="phone" id="phone">
+            </div>
+
+            <div class="group">
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address">
+            </div>
+
+            <div class="group">
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                    <option value="">Choose..</option>
+                    <option value="">Kingdom</option>
+                </select>
+            </div>
+
+            <div class="group">
+                <label for="city">City</label>
+                <select name="city" id="city">
+                    <option value="">Choose..</option>
+                    <option value="">London</option>
+                </select>
+            </div>
+        </div>
+        <div class="return">
+            <div class="row">
+                <div>Total Quantity</div>
+                <div class="totalQuantity">4</div>
+            </div>
+            <div class="row">
+                <div>Total Price</div>
+                <div class="totalPrice">$490</div>
+            </div>
+        </div>
+        <button class="buttonCheckout">CHECKOUT</button>
+        </div>
+
+      
+</div>
+</div>
+</form>
+
+<footer class="section-p1">
+  <div class="col">
+    <img class="logo" src="logo.jpg" alt="">
+    <h4>Contact</h4>
+    <p><span>Address</span>: 562 willington Road, Street 12,Perambur</p>
+    <p><strong>Phone:</strong>6381984436 / 9003097654</p>
+    <p><strong>Hours:</strong>10:00 - 18:00, Mon - Sat</p>
+    <div class="follow">
+      <h4>Folllow Us</h4>
+    
+    <div class="icon">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-pinterest-p"></i>
+      <i class="fab fa-youtube"></i>
+    </div>
+  </div>
+  </div>
+
+  <div class="col">
+    <h4>About</h4>
+    <a href="#">About us</a>
+    <a href="#">Delivery Information</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Contact Us</a>
+  </div>
+
+
+  <div class="col">
+    <h4>My Account</h4>
+    <a href="#">Sign in</a>
+    <a href="#">View Cart</a>
+    <a href="#">My Wishlist</a>
+    <a href="#">Track My Order</a>
+    <a href="#">Help</a>
+  </div>
+
+  <div class="col install">
+    <h4>Install App</h4>
+    <p>
+      From App Store or Google Play
+    </p>
+    <div class="row">
+      <img src="icon1.jpg" alt="">
+      <img src="icon3.jpg" alt="">
+    </div>
+    <p>Secured Payment Gateways</p>
+    <img src="pay3.jpg" alt="">
+  </div>
+
+  <div class="copyright">
+    <p>@ 2021, Tech2 etc - HTML CSS Ecommerce Template</p>
+  </div>
+ </footer>
+
+
+<script src="checkout.js"></script> 
+<script src="addtocart.js"></script>
+
+
+
+
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxACoDcdXKQ5lS4XBJfbClCudYCdLwLdaRa237tWFlGl6Br0qKUb12h0yZpksi-gNWV/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('buttonCheckout', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+</body>
+</html>

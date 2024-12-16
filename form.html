@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Zyla Shopping</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <section id="header">
+    <a href="#">
+    <img src="logo.jpg" class="logo" alt="">
+    </a>
+    <div>
+      <ul id="navbar">
+        <li><a  href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="active" href="cart.html"><i class="far fa-shopping-bag"></i> </a>
+        </li>
+
+      </ul>
+
+    </div>
+  
+  
+  </section>
+
+  <section>
+  <div class="container">
+
+    <form action="" name="submit-to-google-sheet">
+
+      <div class="row">
+
+        <div class="col">
+          <h3 class="title">billing address</h3>
+          
+          
+          <div class="inputBox">
+            <span>full name :</span>
+            <input type="text" placeholder="name" name="Name">
+          </div>
+
+           
+          <div class="inputBox">
+            <span>email :</span>
+            <input type="email"name="email" placeholder="example@ex.com">
+          </div>
+
+           
+          <div class="inputBox">
+            <span>address:</span>
+            <input type="text" name="address" placeholder="address">
+          </div>
+
+          <div class="inputBox">
+            <span>city :</span>
+            <input type="text" name="city" placeholder="chennai">
+          </div>
+
+          <div class="flex">
+            <div class="inputBox">
+              <span>state:</span>
+              <input type="text" name="state" placeholder="india">
+            </div>
+            <div class="inputBox">
+              <span>zip code :</span>
+              <input type="text" name="zip code" placeholder="123 456">
+            </div>
+          </div>
+
+
+        </div>
+        
+      
+
+      <div class="col">
+        <h3 class="title">payment</h3>
+        
+
+        <div class="inputBox">
+          <span>cards accepted :</span>
+          <img src="pay3.jpg" alt="" width="35%">
+        </div>
+        
+        <div class="inputBox">
+          <span>name on card :</span>
+          <input type="text" name="name on card" placeholder="name">
+        </div>
+
+         
+        <div class="inputBox">
+          <span>credit card number:</span>
+          <input type="number" name="card number" placeholder="1234-5647-8901-3424">
+        </div>
+
+        <div class="inputBox">
+          <span>exp month:</span>
+          <input type="text" name="exp month" placeholder="August">
+        </div>
+
+        <div class="flex">
+          <div class="inputBox">
+            <span>exp year :</span>
+            <input type="number" name="exp year" placeholder="2024">
+          </div>
+          <div class="inputBox">
+            <span>CVV :</span>
+            <input type="number" name="cvv" placeholder="1234">
+          </div>
+        </div>
+
+
+      </div>
+      
+    </div>
+
+    <input type="submit" value="proceed to checkout" class="submit-btn">
+    </form>
+  </div>
+
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxmCNsjKpRi79NtiwnrcRgDvRB7znnJYKeHITndNXlHFkGFlzzApd06eSk3Tik1appvkw/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</section>
+</body>
+
+
+</html>
